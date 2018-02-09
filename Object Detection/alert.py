@@ -5,9 +5,9 @@ import os
 import sys
 import time
 
-BROKER = "140.114.79.70"
+BROKER = "192.168.0.99"
 #TOPIC = "iot-1/d/0242ac104a02/evt/#"  # Subscribe topic from Rpi O
-TOPIC = "iot-1/d/0242ac100902/evt/#"  # Subscribe topic from Rpi O
+TOPIC = "iot-1/d/0242ac100902/evt/#"  # Subscribe topic from Rpi 3
 
 def json_parse(msg):
     data = json.loads(msg)
