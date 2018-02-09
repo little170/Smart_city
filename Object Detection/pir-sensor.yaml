@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pir-sensors-rpi1
+spec:
+  containers:
+  - name: pir-sensors-rpi1
+    image: wakeup706/scalebox:pir
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi1
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pir-sensors-rpi2
+spec:
+  containers:
+  - name: pir-sensors-rpi2
+    image: wakeup706/scalebox:pir
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi2
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pir-sensors-rpi3
+spec:
+  containers:
+  - name: pir-sensors-rpi3
+    image: wakeup706/scalebox:pir
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi3
