@@ -1,2 +1,0 @@
-1. kubectl create co2-sensor.yaml
-2. kubectl create heat-map.yaml
