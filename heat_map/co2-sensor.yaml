@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: co2-sensors-rpi1
+spec:
+  containers:
+  - name: co2-sensors-rpi1
+    image: little170/scalebox:co2 
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi1
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: co2-sensors-rpi2
+spec:
+  containers:
+  - name: co2-sensors-rpi2
+    image: little170/scalebox:co2
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi2
+
+---
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: co2-sensors-rpi3
+spec:
+  containers:
+  - name: co2-sensors-rpi3
+    image: litte170/scalebox:co2
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi3
