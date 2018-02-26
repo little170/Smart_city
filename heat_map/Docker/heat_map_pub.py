@@ -7,13 +7,13 @@ import paho.mqtt.publish as publish
 import json
 import time 
 
-BROKER = "140.114.79.70"
+BROKER = "192.168.0.99"
 TOPIC = "iot-1/d/+/evt/#"
 
 def pub_image(pollution_range):
     
     PUB_TOPIC = "heat-map"
-    PUB_BROKER = "140.114.79.70"
+    PUB_BROKER = "192.168.0.99"
     f= open("image.png")
     filecontent = f.read()
     message = bytearray(filecontent)
