@@ -2,7 +2,7 @@ import paho.mqtt.client as mqtt
 import numpy as np
 import json
 
-BROKER = "140.114.79.70"
+BROKER = "192.168.0.99"
 TOPIC = "iot-1/d/0242ac110002/evt/#"
 
 def json_parse(msg):
