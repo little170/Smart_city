@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pir-audio-rpi1
+spec:
+  containers:
+  - name: pir-audio-rpi1
+    image: wakeup706/rpi-audio-mqtt:v1 
+    securityContext:
+      privileged: true
+    command: ["/bin/bash","-c","python audio_record.py"]
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+    env:
+    - name: BROKER
+      value: "140.114.79.70"
+    - name: TOPIC
+      value: "audio"
+  restartPolicy: Never
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: rpi1

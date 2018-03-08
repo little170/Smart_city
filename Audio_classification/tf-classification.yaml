@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tf-audio-rpi1
+spec:
+  containers:
+  - name: tf-audio-rpi1
+    image: little170/tf-audio:rpi-v2
+    securityContext:
+      privileged: true
+    command: ["/bin/bash","-c","sh run.sh"]
+    env:
+    - name: BROKER
+      value: "192.168.0.99"
+  restartPolicy: Never
+  nodeSelector:
+    device: rpi2

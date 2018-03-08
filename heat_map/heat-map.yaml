@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
   - name: heat-map
-    image: little170/heat-map-mqtt:master 
+    image: little170/heat-map-mqtt:master-v2 
     command: ["/bin/bash","-c","python heat_map_pub.py"]
     securityContext:
       privileged: true

@@ -1,11 +1,15 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: co2-sensors-rpi1
+  name: pir-sensors-rpi1
 spec:
   containers:
-  - name: co2-sensors-rpi1
-    image: little170/scalebox:co2-rpi1 
+  - name: pir-sensors-rpi1
+    image: little170/scalebox:pir-env-deviceid-v2
+    command : ["bash","run.sh"]
+    env:
+    - name: DEVICE_ID 
+      value: 'rpi1'
     securityContext:
       privileged: true
     volumeMounts:
@@ -23,11 +27,15 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: co2-sensors-rpi2
+  name: pir-sensors-rpi2
 spec:
   containers:
-  - name: co2-sensors-rpi2
-    image: little170/scalebox:co2-rpi2
+  - name: pir-sensors-rpi2
+    image: little170/scalebox:pir-env-deviceid-v2
+    command : ["bash","run.sh"]
+    env:
+    - name: DEVICE_ID 
+      value: 'rpi2'
     securityContext:
       privileged: true
     volumeMounts:
@@ -45,11 +53,15 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: co2-sensors-rpi3
+  name: pir-sensors-rpi3
 spec:
   containers:
-  - name: co2-sensors-rpi3
-    image: little170/scalebox:co2-rpi3
+  - name: pir-sensors-rpi3
+    image: little170/scalebox:pir-env-deviceid-v2
+    command : ["bash","run.sh"]
+    env:
+    - name: DEVICE_ID 
+      value: 'rpi3'
     securityContext:
       privileged: true
     volumeMounts:
