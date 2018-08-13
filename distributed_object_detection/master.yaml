@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: yolo-master
+spec:
+  containers:
+  - name: yolo-master
+    image: little170/yolo:pc-master
+    command: ["python"]
+    args: ["worker.py","--ps_hosts=140.114.79.60:8887","--worker_hosts=140.114.79.60:8888,140.114.79.67:8888","--job_name=ps","--task_index=0"]
+    securityContext:
+      privileged: true
+    volumeMounts:
+    - mountPath: /dev/mem
+      name: mem
+    ports:
+    - containerPort: 8887
+      hostPort: 8887
+  restartPolicy: Never
+  volumes:
+  - name: mem
+    hostPath:
+      path: /dev/mem
+  nodeSelector:
+    device: minion1
